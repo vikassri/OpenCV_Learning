@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Reading the image
-img = cv2.imread("Resources/bird.jpg")
+img = cv2.imread("Resources/lamb.jpg")
 
 ######################  IMAGE RESIZE #################
 # find the size of the images
@@ -19,7 +19,7 @@ print(imgResize.shape)
 (480, 640, 3)  # width, height and channel
 """
 # writing this image into new file
-cv2.imwrite("Resources/small_bird.jpg", imgResize)
+cv2.imwrite("Resources/lamb.jpg", imgResize)
 
 # showing the small image
 cv2.imshow("Small Size", imgResize)
@@ -27,7 +27,7 @@ cv2.imshow("Small Size", imgResize)
 ######################  IMAGE CROPPING #################
 
 ImgCropped = imgResize[0:img.shape[0],
-                       100:img.shape[1]]  # [height, width]
+                       100: img.shape[1]]  # [height, width]
 cv2.imshow("Cropped Size", ImgCropped)
 
 
