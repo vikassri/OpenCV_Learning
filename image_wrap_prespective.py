@@ -1,23 +1,26 @@
 import cv2
 import numpy as np
 
+img = cv2.imread('Resources/k_cards.jpg')
 
-img = cv2.imread('Resources/cards.jpg')
+# set the width and height of perspective
+width, height = 250, 350
 
-x1=44
-y1=25
+# pt1 have upper left, upper right, lower left, lower right
+pt1 = np.float32([[298, 339], [529, 416], [131, 650], [384, 741]])
 
-# first row
-cv2.rectangle(img,(x1,y1),(426,550),color=(255,0,0),thickness=3)
-cv2.rectangle(img,(426+x1,y1),(426*2-5,550),color=(0,255,0),thickness=3)
+# pt2 have the perception we want for the image
+pt2 = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
 
-# second row
-cv2.rectangle(img,(426+x1,550+y1),(426*2-5,550*2+5),color=(255,0,0),thickness=3)
-cv2.rectangle(img,(x1,550+y1),(426,550*2+1),color=(0,255,0),thickness=3)
+# get the perspective of our cordinates to actual cordinates
+matrix = cv2.getPerspectiveTransform(pt1, pt2)
 
+# wrap into output to see the Images into correct perspective
+imgOutput = cv2.warpPerspective(img, matrix, (width, height))
 
 # show image
 cv2.imshow("Image", img)
+cv2.imshow("Changed Image", imgOutput)
 
 # show the image for 5 seconds, 0 means undefinite
 cv2.waitKey(10000)
