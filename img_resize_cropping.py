@@ -11,7 +11,7 @@ print(img.shape)
 (1333, 2000, 3)  # width, height and channel
 """
 # resize the image size
-imgResize = cv2.resize(img, (640, 480))
+imgResize = cv2.resize(img, (300, 250))
 
 # print the new image size
 print(imgResize.shape)
@@ -19,14 +19,15 @@ print(imgResize.shape)
 (480, 640, 3)  # width, height and channel
 """
 # writing this image into new file
-cv2.imwrite("Resources/small_birld.jpg", imgResize)
+cv2.imwrite("Resources/small_bird.jpg", imgResize)
 
 # showing the small image
 cv2.imshow("Small Size", imgResize)
 
 ######################  IMAGE CROPPING #################
 
-ImgCropped = imgResize[0:480, 200:640]  # [height, width]
+ImgCropped = imgResize[0:img.shape[0],
+                       100:img.shape[1]]  # [height, width]
 cv2.imshow("Cropped Size", ImgCropped)
 
 
