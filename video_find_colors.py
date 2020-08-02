@@ -10,6 +10,11 @@ cap.set(4, 480)
 # increase the brightness
 cap.set(10, 200)
 
+
+def get_color():
+    pass
+
+
 # check if the capture is open the show the video
 while cap.isOpened():
 

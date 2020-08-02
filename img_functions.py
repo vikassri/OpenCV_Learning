@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # load the images
-img = cv2.imread("Resources/bird.jpg",)
+img = cv2.imread("Resources/small_bird.jpg",)
 
 # Convert the image into gray scale
 imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -30,7 +30,7 @@ cv2.imshow("Dialated Image", imgDialtion)
 cv2.imshow("Erode Image", imgErode)
 
 # show the image for 5 seconds, 0 means undefinite
-cv2.waitKey(10000)
+cv2.waitKey(30000)
 
 # destroy all the image windows
 cv2.destroyAllWindows()

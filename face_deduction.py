@@ -1,5 +1,8 @@
 import cv2
+import numpy as np
 
+facaCascade = cv2.CascadeClassifier(
+    'xmls/haarcascade_frontalface_default.xml')
 # initiate the camera of the devide
 cap = cv2.VideoCapture(0)
 
@@ -10,7 +13,6 @@ cap.set(4, 480)
 # increase the brightness
 cap.set(10, 200)
 
-# check if the capture is open the show the video
 while cap.isOpened():
 
     # Capture the response and frame
@@ -21,6 +23,10 @@ while cap.isOpened():
 
         # take the frame and flip false 0=true
         frame = cv2.flip(frame, 1)
+
+        faces = facaCascade.detectMultiScale(frame, 1.1, 4)
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
         # show the video
         cv2.imshow("frame", frame)

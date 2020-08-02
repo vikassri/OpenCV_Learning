@@ -26,10 +26,8 @@ cv2.imshow("Small Size", imgResize)
 
 ######################  IMAGE CROPPING #################
 
-ImgCropped = imgResize[0:img.shape[0],
-                       100: img.shape[1]]  # [height, width]
+ImgCropped = imgResize[0:img.shape[0], 100: img.shape[1]]  # [height, width]
 cv2.imshow("Cropped Size", ImgCropped)
-
 
 # waiting for the key or 10 secs
 cv2.waitKey(10000)
